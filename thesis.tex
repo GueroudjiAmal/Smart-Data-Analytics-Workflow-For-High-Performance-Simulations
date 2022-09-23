@@ -1,0 +1,199 @@
+
+\documentclass[a4paper, twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{geometry}
+\geometry{
+left=16mm,
+top=30mm,
+right=16mm,
+bottom=30mm
+}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+
+% our packages
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\definecolor{bordeau}{rgb}{0.3515625,0,0.234375}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{afterpage}
+\usepackage{setspace}
+\usepackage{pgffor}
+\usepackage{epigraph}
+
+
+\setlength{\columnseprule}{0pt}
+\setlength\columnsep{10pt}
+
+% our acronmys
+\newcommand{\dask}{Dask\xspace}
+\newcommand{\deisa}{\textsc{deisa}\xspace}
+\newcommand{\declhdf}{{Decl'HDF5}\xspace}
+\newcommand{\pdi}{PDI\xspace}
+
+% listings config
+\definecolor{lstbg}{rgb}{0.98, 0.98, 0.98}
+\definecolor{lstfg}{rgb}{0.12,0.12,0.12}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{hlbackcolour}{rgb}{.99,.99,0.87}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    keywordstyle=[1]\bfseries\color{Blue},
+    keywordstyle=[2]\bfseries\color{CadetBlue},
+    keywordstyle=[3]\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\mdseries\upshape\normalsize\color{lstfg},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=1.5em,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    belowskip=0pt,
+    stepnumber=1,
+    numberstyle=\tiny\color{lightgray},
+    title=\lstname,
+    xleftmargin=1em,
+    frame=single,
+    framesep=.5em,
+    framexleftmargin=1em,
+    backgroundcolor=\color{lstbg},
+    rulecolor=\color{lstbg},
+    upquote=true,
+    escapechar=|,
+}
+\lstset{ %
+    float=tb,
+    floatplacement=tb,
+    style=mystyle,
+}
+\makeatletter
+\newif\ifYAMLlist
+\newcommand{\YAMLsepstyle}{\bfseries\color{lstfg}}
+\newcommand{\YAMLkeystyle}{\mdseries\color{NavyBlue}}
+\newcommand{\YAMLvalstyle}{\mdseries\color{CadetBlue}}
+\newcommand{\YAMLelestyle}{\ifYAMLlist\YAMLvalstyle\else\YAMLkeystyle\fi}
+\lstdefinelanguage{yaml}
+{
+  morekeywords={true,false,\~},
+  sensitive=false,
+  morecomment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  stringstyle=\YAMLvalstyle,
+  string=[b]',
+  morestring=[b]",
+  basicstyle=\ttfamily\mdseries\upshape\normalsize\color{lstfg}\YAMLkeystyle,
+  literate=*{:}{{\YAMLsepstyle:}\YAMLvalstyle}1
+            {,}{{\YAMLsepstyle,}\YAMLelestyle}1
+           {\{}{{\YAMLsepstyle\{}\YAMLkeystyle\YAMLlistfalse}1
+           {\}}{{\YAMLsepstyle\}}}1
+            {[}{{\YAMLsepstyle[}\YAMLvalstyle\YAMLlisttrue}1
+            {]}{{\YAMLsepstyle]}}1
+            {-}{{\YAMLsepstyle{\mdseries-}}\YAMLvalstyle}1,  %normal bold is ugly
+}
+\lst@AddToHook{EOL}{\@onelevel@sanitize\lst@language\def\@yaml{yaml}\@onelevel@sanitize\@yaml\ifx\lst@language\@yaml\YAMLkeystyle\fi}
+\makeatother
+\newcommand{\hlline}{\makebox[0pt]{~\hspace*{30em}\color{hlbackcolour}\rule[-.6ex]{31.5em}{2.7ex}}}
+
+
+% TODOs
+\newcommand{\julien}[1]{{\color{Green}\textbf{Julien: }{\small#1}}}
+\newcommand{\bruno}[1]{{\color{Cyan}\textbf{Bruno: }{\small#1}}}
+\newcommand{\amal}[1]{{\color{Red}\textbf{Amal: }{\small#1}}}
+\newcommand{\draft}[1]{{\color{Brown}\textbf{Draft: }{\small#1}}}
+\newcommand{\hide}[1]{}
+\newcommand{\TODO}[1]{\subparagraph{} {\colorbox{Gray}{\begin{minipage}{0.8\textwidth}\bf\textcolor{red}{#1}\end{minipage}}}}
+
+
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+%Bibliography style
+\usepackage[square, numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+% Thesis title
+\newcommand{\PhDTitle}{Smart Data Analytics Workflows for High Performance Simulations)} 
+
+% Name
+\newcommand{\PhDname}{Amal GUEROUDJI} 
+
+% Change this variable if you add or remove chapters
+\newcommand*{\NumOfChapters}{7}
+
+% Change this variable if you add or remove appendices
+\newcommand*{\NumOfAppendices}{2}
+
+% PDF metadata
+\hypersetup{
+	pdfauthor={\PhDname},
+	pdfsubject={Manuscrit de thèse de doctorat},
+	pdftitle={\PhDTitle}
+}
+
+
+\begin{document}
+	\doublespacing
+	
+    \input{layout/firstpage.tex}
+    
+    \input{layout/dedication.tex}
+    \cleardoublepage
+    
+    \input{layout/acknowledgements.tex}
+    \cleardoublepage
+    
+    \pagenumbering{arabic}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    
+
+    \foreach \i in {1,2,...,\NumOfChapters}{
+        \input{\i}
+        \cleardoublepage
+    }
+    
+    \appendix
+    \foreach \i in {1,2,...,\NumOfAppendices}{
+        \input{appendices/\i}
+        \cleardoublepage
+    }
+    
+    \bibliography{bibliography.bib}
+    \pagebreak
+    
+    \input{layout/lastpage.tex}
+\end{document}

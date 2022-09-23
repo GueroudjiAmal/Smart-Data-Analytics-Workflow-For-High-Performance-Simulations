@@ -1,0 +1,94 @@
+
+\chapter{Related Work}
+
+\epigraph{\textit{If I have seen further, it is by standing on the shoulders of Giants.}} {Issac Newton}
+
+\newpage
+
+The work presented in this thesis deals with several topics that fit into four main categories: in situ frameworks, task-based in situ analytics, big data frameworks, and virtual arrays APIs. 
+
+In this chapter, we will talk about that :p
+I just make ctrl+C Ctrl+V from HiPC paper here 
+\section{In Situ Frameworks}
+
+ADIOS I, II :p 
+
+Damaris 
+
+FlowVR
+
+The in situ paradigm was applied first to visualisation\cite{InSituLiuMa:2007}, then it has been extended to general-purpose data processing. As such, most scientific visualization frameworks are meant for high-performance computing support in situ visualization.
+
+Paraview\cite{ahrens_paraview_2005}, built on top of VTK\cite{hanwell_visualization_2015_vtk} or Visit/Libsim\cite{childs_visit_nodate}, are both supporting in situ processing through the extensions Catalyst\cite{catalyst11} and Libsim\cite{libsim11} respectively.
+
+In situ visualization comes as a built-in feature in the latest developments such as Alpine/Ascent/VTKm\cite{Larsen-alpine-isav17,moreland_vtk-m_2016} or SENSEI\cite{ayachit_sensei_2016}.
+
+Other frameworks take a more generic approach to support any kind of data processing in situ, in transit (data are first moved to extra nodes not running the simulation) or a mix of both.
+Analysis results are eventually saved to disk rather than directly visualized.
+
+FlowVR\cite{dreher_flexible_2014}, 
+Decaf\cite{dreher_decaf_2017} and Bredala\cite{dreher_bredala_2016}, 
+in situ extensions for ADIOS1\cite{lofstead_insights_2013_adios,boyuka_transparent_2014_adios} and ADIOS2\cite{godoy_adios2_2020}, Damaris\cite{dorier_damaris_2012} or 
+Dataspaces\cite{docan_dataspaces_2012} are examples of frameworks in that category.
+
+All these tools rely on a static parallelization, derivative of the data-flow model: the tasks of the analysis workflow are mapped to compute resources statically.
+
+This often leads to high performance, but requires the user to control this mapping explicitly.
+
+The underlying transport layer is often based on MPI, simplifying the coupling with the simulation code also based on MPI, or the introduction of an analysis algorithm parallelized with MPI in the workflow.
+
+
+\section{Big Data Frameworks}
+
+The map/reduce model, supported by frameworks like Spark or Flink, is a popular parallelization model for data analysis tasks for Big Data oriented applications.
+A few attempts have been made with this model for in situ processing: SMART\cite{wang_smart_2015} proposes a map/reduce interface for programming analysis on top of MPI/OpenMP, while \cite{zanuz_-transit_2018_flink} takes benefit of Flink stream processing support for enabling in transit analysis.
+But the model provides a loose control on data partitioning that is not well adapted to support efficient parallelization of patterns such as stencil computations\cite{arrayUDF-SC2018} or large-scale linear algebra.
+
+
+\section{In Situ Task-based Tools}
+Task-based programming where the tasks are dynamically distributed to compute resources is today classical for shared memory programming using for instance, OpenMP or Intel TBB.
+TINS\cite{yokota_tins_2018} leverages this approach as long as the simulation is also parallelized on each node with tasks.
+TINS relies on the TBB work-stealing scheduler to dynamically distribute the tasks on the cores, being simulation or analytics tasks.
+The benefits are twofold: performance is improved as cores are not assigned exclusively to analysis or simulation workload, and the user does not have to take care of task-to-core mapping.
+Goldrush investigates a similar approach in the context of OpenMP\cite{zheng2013goldrush}.
+
+
+\section{Distributed Task-based frameworks}
+
+Dask 
+
+Parsl 
+
+Ray
+
+pycompss
+
+starpu
+
+parsec
+
+Legion/pygion
+
+
+\section{In situ Task-based/task-based}
+chercher le papier :p
+with dataspaces by Manish et al
+\section{staging}
+dataspaces, smartsim, 
+\section{Virtual arrays}
+(discussion sur les differentes facons de represneter les donnees dist)
+Dask Arrays 
+
+Pycomps datasets 
+
+Legion
+
+smartsim
+
+dataspaces
+
+\section{Discussion [or discussions after each category to ]}
+
+
+
+
