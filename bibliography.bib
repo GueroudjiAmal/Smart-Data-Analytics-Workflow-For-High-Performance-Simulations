@@ -8,7 +8,16 @@
   pages={11-20},
   doi={10.1109/HiPC53243.2021.00015}}
 
-
+@article{valiant1990bsp,
+  title={A bridging model for parallel computation},
+  author={Valiant, Leslie G},
+  journal={Communications of the ACM},
+  volume={33},
+  number={8},
+  pages={103--111},
+  year={1990},
+  publisher={ACM New York, NY, USA}
+}
 @incollection{goos_learning_2001,
 	address = {Berlin, Heidelberg},
 	title = {Learning from the {Success} of {MPI}},
@@ -273,6 +282,54 @@ numpages = {5},
 keywords = {HPC, Scientific Visualization, In Situ},
 location = {Denver, CO, USA},
 series = {ISAV'17}
+}
+
+@inproceedings{10.1145/277650.277725,
+author = {Frigo, Matteo and Leiserson, Charles E. and Randall, Keith H.},
+title = {The Implementation of the Cilk-5 Multithreaded Language},
+year = {1998},
+isbn = {0897919874},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/277650.277725},
+doi = {10.1145/277650.277725},
+abstract = {The fifth release of the multithreaded language Cilk uses a provably good "work-stealing" scheduling algorithm similar to the first system, but the language has been completely redesigned and the runtime system completely reengineered. The efficiency of the new implementation was aided by a clear strategy that arose from a theoretical analysis of the scheduling algorithm: concentrate on minimizing overheads that contribute to the work, even at the expense of overheads that contribute to the critical path. Although it may seem counterintuitive to move overheads onto the critical path, this "work-first" principle has led to a portable Cilk-5 implementation in which the typical cost of spawning a parallel thread is only between 2 and 6 times the cost of a C function call on a variety of contemporary machines. Many Cilk programs run on one processor with virtually no degradation compared to equivalent C programs. This paper describes how the work-first principle was exploited in the design of Cilk-5's compiler and its runtime system. In particular, we present Cilk-5's novel "two-clone" compilation strategy and its Dijkstra-like mutual-exclusion protocol for implementing the ready deque in the work-stealing scheduler.},
+booktitle = {Proceedings of the ACM SIGPLAN 1998 Conference on Programming Language Design and Implementation},
+pages = {212–223},
+numpages = {12},
+keywords = {critical path, multithreading, work, parallel computing, programming language, runtime system},
+location = {Montreal, Quebec, Canada},
+series = {PLDI '98}
+}
+
+@article{kooburat_extending_nodate,
+	title = {Extending {Task}-based {Programming} {Model} beyond {Shared} {Memory} {Systems}},
+	abstract = {Task-based programming model allows programmer to easily exploit the computation power of chip multiprocessing because he can express fine-grained parallelism without worrying about overhead. However, it is normally used in shared memory system which allows implicit communication and synchronization. As a result, this programming model cannot be used to efficiently utilize distributed memory system such as commodity cluster computers.},
+	language = {en},
+	author = {Kooburat, Thawan and Hwang, MinJae},
+	pages = {7},
+	file = {Kooburat and Hwang - Extending Task-based Programming Model beyond Shar.pdf:/local/home/ag262995/Zotero/storage/77FX3W8Y/Kooburat and Hwang - Extending Task-based Programming Model beyond Shar.pdf:application/pdf},
+}
+
+
+@article{cilk5,
+author = {Frigo, Matteo and Leiserson, Charles E. and Randall, Keith H.},
+title = {The Implementation of the Cilk-5 Multithreaded Language},
+year = {1998},
+issue_date = {May 1998},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {33},
+number = {5},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/277652.277725},
+doi = {10.1145/277652.277725},
+abstract = {The fifth release of the multithreaded language Cilk uses a provably good "work-stealing" scheduling algorithm similar to the first system, but the language has been completely redesigned and the runtime system completely reengineered. The efficiency of the new implementation was aided by a clear strategy that arose from a theoretical analysis of the scheduling algorithm: concentrate on minimizing overheads that contribute to the work, even at the expense of overheads that contribute to the critical path. Although it may seem counterintuitive to move overheads onto the critical path, this "work-first" principle has led to a portable Cilk-5 implementation in which the typical cost of spawning a parallel thread is only between 2 and 6 times the cost of a C function call on a variety of contemporary machines. Many Cilk programs run on one processor with virtually no degradation compared to equivalent C programs. This paper describes how the work-first principle was exploited in the design of Cilk-5's compiler and its runtime system. In particular, we present Cilk-5's novel "two-clone" compilation strategy and its Dijkstra-like mutual-exclusion protocol for implementing the ready deque in the work-stealing scheduler.},
+journal = {SIGPLAN Not.},
+month = {may},
+pages = {212–223},
+numpages = {12},
+keywords = {work, multithreading, parallel computing, runtime system, programming language, critical path}
 }
 
 
