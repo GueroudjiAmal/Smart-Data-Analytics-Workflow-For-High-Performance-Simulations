@@ -8,6 +8,26 @@
   pages={11-20},
   doi={10.1109/HiPC53243.2021.00015}}
 
+@inproceedings{larsen_strawman_2015,
+        address = {Austin TX USA},
+        title = {Strawman: {A} {Batch} {In} {Situ} {Visualization} and {Analysis} {Infrastructure} for {Multi}-{Physics} {Simulation} {Codes}},
+        isbn = {978-1-4503-4003-8},
+        shorttitle = {Strawman},
+        url = {https://dl.acm.org/doi/10.1145/2828612.2828625},
+        doi = {10.1145/2828612.2828625},
+        abstract = {We present Strawman, a system designed to explore the in situ visualization and analysis needs of simulation code teams planning for multi-physics calculations on exascale architectures. Strawman’s design derives from key requirements from a diverse set of simulation code teams, including lightweight usage of shared resources, batch processing, ability to leverage modern architectures, and ease-ofuse both for software integration and for usage during simulation runs. We describe the Strawman system, the key technologies it depends on, and our experiences integrating Strawman into three proxy simulations. Our ﬁndings show that Strawman’s design meets our target requirements, and that some of its concepts may be worthy of integration into our community in situ implementations.},
+        language = {en},
+        urldate = {2022-10-27},
+        booktitle = {Proceedings of the {First} {Workshop} on {In} {Situ} {Infrastructures} for {Enabling} {Extreme}-{Scale} {Analysis} and {Visualization}},
+        publisher = {ACM},
+        author = {Larsen, Matthew and Brugger, Eric and Childs, Hank and Eliot, Jim and Griffin, Kevin and Harrison, Cyrus},
+        month = nov,
+        year = {2015},
+        pages = {30--35},
+        file = {Larsen et al. - 2015 - Strawman A Batch In Situ Visualization and Analys.pdf:/local/home/ag262995/Zotero/storage/AR3I8HN3/Larsen et al. - 2015 - Strawman A Batch In Situ Visualization and Analys.pdf:application/pdf},
+}
+
+
 @article{valiant1990bsp,
   title={A bridging model for parallel computation},
   author={Valiant, Leslie G},
@@ -570,6 +590,48 @@ month = oct,
 	file = {Liu et al. - 2014 - Hello ADIOS the challenges and lessons of develop.pdf:/local/home/ag262995/Zotero/storage/G99SMT4M/Liu et al. - 2014 - Hello ADIOS the challenges and lessons of develop.pdf:application/pdf}
 }
 
+@misc{redis,
+        title = {Redis},
+        url = {https://redis.io/},
+        abstract = {Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker},
+        language = {en},
+        urldate = {2022-10-27},
+        journal = {Redis},
+        file = {Snapshot:/local/home/ag262995/Zotero/storage/TGCVNXTB/redis.io.html:text/html},
+}
+
+@misc{site_introduction_smartsim,
+        title = {Introduction — {SmartSim} 0.4.1 documentation},
+        url = {https://www.craylabs.org/docs/overview.html},
+        urldate = {2022-10-27},
+        file = {Introduction — SmartSim 0.4.1 documentation:/local/home/ag262995/Zotero/storage/ZHX67EXC/overview.html:text/html},}
+
+@misc{openMP,
+        title = {Home},
+        url = {https://www.openmp.org/},
+        abstract = {Latest News
+View Monthly Archives  Tweets by OpenMP\_ARB
+Upcoming Events
+View All Events    Get all the latest API specifications, technical report drafts},
+        language = {en-GB},
+        urldate = {2022-10-27},
+        journal = {OpenMP},
+        author = {{tim.lewis}},
+        file = {Snapshot:/local/home/ag262995/Zotero/storage/54LZIAXE/www.openmp.org.html:text/html},
+}
+
+
+
+@misc{smartsim_2022,
+        title = {Using {Machine} {Learning} at scale in numerical simulations with {SmartSim}: {An} application to ocean climate modeling {\textbar} {Elsevier} {Enhanced} {Reader}},
+        shorttitle = {Using {Machine} {Learning} at scale in numerical simulations with {SmartSim}},
+        url = {https://reader.elsevier.com/reader/sd/pii/S1877750322001065?token=3C2209B5F0A6FC2C970A8433BDA25929224F81C74C20F9A352B3AF7661C49FBD9AC6152AB10B92F8CD6F436671CA3565&originRegion=eu-west-1&originCreation=20221027124459},
+        language = {en},
+        urldate = {2022-10-27},
+        doi = {10.1016/j.jocs.2022.101707},
+        file = {Snapshot:/local/home/ag262995/Zotero/storage/92WY4NF7/S1877750322001065.html:text/html},
+}
+
 
 @inproceedings{mommessin_automatic_2017,
 	title = {Automatic {Data} {Filtering} for {In} {Situ} {Workflows}},
@@ -702,7 +764,7 @@ month = oct,
 	file = {Dorier et al. - 2015 - Lessons Learned from Building In Situ Coupling Fra.pdf:/local/home/ag262995/Zotero/storage/YBB9GVSD/Dorier et al. - 2015 - Lessons Learned from Building In Situ Coupling Fra.pdf:application/pdf}
 }
 
-@inproceedings{sunstaging_2016,
+@inproceedings{staging_2016_manish,
 	title = {In-{Staging} {Data} {Placement} for {Asynchronous} {Coupling} of {Task}-{Based} {Scientific} {Workflows}},
 	doi = {10.1109/ESPM2.2016.006},
 	abstract = {Coupled application workflows composed of applications implemented using task-based models present new coupling and data exchange challenges, due to the asynchronous interaction and coupling behaviors between tasks of the component applications. In this paper, we present an adaptive data placement approach that addresses these challenges by dynamically adjusting to the asynchronous coupling patterns. Specifically, it places data across a set of staging cores/nodes with an awareness of the application-specific data locality requirements and the runtime task executions at these staging cores/nodes, with the goal of reducing end-to-end execution time and data movement overhead of the workflow. We experimentally demonstrate the effectiveness of our approach on the Titan Cray XK7 system using representative data coupling patterns derived from current scientific workflows. The evaluation demonstrates that our approach efficiently improves performance by reducing the time-to-solution and increasing the quality of insights for scientific discovery.},
@@ -714,6 +776,25 @@ month = oct,
 	pages = {2--9},
 	file = {IEEE Xplore Full Text PDF:/local/home/ag262995/Zotero/storage/A9SWWKAM/Sun et al. - 2016 - In-Staging Data Placement for Asynchronous Couplin.pdf:application/pdf;IEEE Xplore Abstract Record:/local/home/ag262995/Zotero/storage/9DML7VB4/7831554.html:text/html}
 }
+
+@Inbook{Wu2017,
+author="Wu, Dongyao
+and Sakr, Sherif
+and Zhu, Liming",
+editor="Zomaya, Albert Y.
+and Sakr, Sherif",
+title="Big Data Programming Models",
+bookTitle="Handbook of Big Data Technologies",
+year="2017",
+publisher="Springer International Publishing",
+address="Cham",
+pages="31--63",
+abstract="Big Data programming models represent the style of programming and present the interfaces paradigm for developers to write big data applications and programs. Programming models normally the core feature of big data frameworks as they implicitly affects the execution model of big data processing engines and also drives the way for users to express and construct the big data applications and programs. In this chapter, we comprehensively investigate different programming models for big data frameworks with comparison and concrete code examples.",
+isbn="978-3-319-49340-4",
+doi="10.1007/978-3-319-49340-4_2",
+url="https://doi.org/10.1007/978-3-319-49340-4_2"
+}
+
 
 @article{babuji_parsl_2019,
 	title = {Parsl: {Pervasive} {Parallel} {Programming} in {Python}},
@@ -796,6 +877,20 @@ month = oct,
 	urldate = {2021-05-06},
 	journal = {dask-ml 0.1 documentation},
 	file = {Snapshot:/local/home/ag262995/Zotero/storage/MHF6DVX8/dask_ml.decomposition.IncrementalPCA.html:text/html}
+}
+
+@Inbook{Robison2011tbb,
+author="Robison, Arch D.",
+editor="Padua, David",
+title="Intel® Threading Building Blocks (TBB)",
+bookTitle="Encyclopedia of Parallel Computing",
+year="2011",
+publisher="Springer US",
+address="Boston, MA",
+pages="955--964",
+isbn="978-0-387-09766-4",
+doi="10.1007/978-0-387-09766-4_51",
+url="https://doi.org/10.1007/978-0-387-09766-4_51"
 }
 
 
