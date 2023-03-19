@@ -86,7 +86,7 @@ technologies de l'information, Informatique} 													%% Nom de l'ED. Voir s
 %%% Membre n°6 (Co-directeur de thèse) / Member n°6 (Thesis co-supervisor)
 \newcommand{\jurynameF}{Julien BIGOT}
 \newcommand{\juryadressF}{Statut, Établissement (Unité de recherche)}
-\newcommand{\juryroleF}{Co-directeur de thèse}
+\newcommand{\juryroleF}{Co-encadrant de thèse}
 
 %%% Membre n°7 (Invité) / Member n°7 (Guest)
 \newcommand{\jurynameG}{Prénom Nom}
@@ -111,75 +111,7 @@ technologies de l'information, Informatique} 													%% Nom de l'ED. Voir s
 
 \thispagestyle{empty}
 
-\begin{textblock}{100}(0,0)
-    \includegraphics [angle=-90,scale=0.8]{media/bande.png}
-    \vspace{300mm}
-\end{textblock}
-
-
-
-\begin{textblock}{1}(\hpostt,\vpostt)
-	\textblockcolour{white}
-	\includegraphics[scale=1]{media/etab/\logoEtt.png}
-\end{textblock}
-
-\begin{textblock}{1}(\hpos,\vpos)
-	\textblockcolour{white}
-		\includegraphics[scale=1]{media/etab/uga.jpg}	
-\end{textblock}
-
-
 %% Texte
-\begin{singlespace}
-\begin{textblock}{10}(5.7,3)
-	\textblockcolour{white}
-	
-	\color{black}
-	\begin{flushright}
+\includepdf[pages=-]{layout/couverture.pdf}
 
-		\huge{\PhDTitle} \bigskip %% Titre de la thèse 
-		\vfill
-		\color{black} %% Couleur noire du reste du texte
-		\normalsize {Thèse de doctorat de l'Université de Grenoble Alpes} \\
-		préparée à \PhDworkingplace \\ \bigskip
-		\vfill
-		École doctorale n$^{\circ}$\ecodocnum ~\ecodoctitle ~(\ecodocacro)  \\
-		
-		\small{Spécialité de doctorat: \PhDspeciality} \bigskip %% Spécialité 
-		\vfill  
-		\footnotesize{Thèse présentée et soutenue à \defenseplace, le \defensedate, par} \bigskip
-		\vfill
-		\Large{\textbf{\textsc{\PhDname}}} %% Nom du docteur
-		\vfill
-	\end{flushright}
-	
-	\color{black}
-	%% Jury
-	\begin{flushleft}
-		
-		\small Composition du Jury :
-	\end{flushleft}
-	%% Members of the jury
-
-	\small
-	%\begin{center}
-	\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-	\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}lm{#1}}
-	
-	\label{jury} 																				%% Mettre à jour si des membres ont été ajoutés ou retirés / Update if members have been added or removed
-	\begin{flushleft}
-	\begin{tabular}{@{} L{9.5cm} R{4.5cm}}
-		\jurynameA  \\ \juryadressA & \juryroleA \\[5pt]
-		\jurynameB  \\ \juryadressB & \juryroleB \\[5pt]
-		\jurynameC  \\ \juryadressC & \juryroleC \\[5pt]
-		\jurynameD  \\ \juryadressD & \juryroleD \\[5pt]
-		\jurynameE  \\ \juryadressE & \juryroleE \\[5pt]
-		\jurynameF  \\ \juryadressF & \juryroleF \\[5pt]
-		\jurynameG  \\ \juryadressG & \juryroleG \\[5pt]
-		\jurynameH  \\ \juryadressH & \juryroleH \\[5pt]
-	\end{tabular} 
-	\end{flushleft}   
-	%\end{center}
-\end{textblock}
-\end{singlespace}
-\afterpage{\blankpage}
+%\afterpage{\blankpage}

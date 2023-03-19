@@ -2,13 +2,13 @@
 \documentclass[a4paper, twoside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\rmdefault}
 \usepackage{geometry}
 \geometry{
-left=16mm,
-top=30mm,
-right=16mm,
-bottom=30mm
+left=25mm,
+top=25mm,
+right=25mm,
+bottom=25mm
 }
 
 \usepackage{amsmath,amssymb,amsfonts}
@@ -17,9 +17,11 @@ bottom=30mm
 \usepackage[usenames,dvipsnames,table]{xcolor}
 
 % our packages
+\usepackage{pdfpages}
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{caption}
 \usepackage{listings}
+\usepackage{pgfplots}
 \usepackage{xspace}
 \usepackage{subcaption}
 \usepackage{xcolor}
@@ -37,6 +39,25 @@ bottom=30mm
 \usepackage{setspace}
 \usepackage{pgffor}
 \usepackage{epigraph}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[RO,LE]{\thepage}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
+% not imply 
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
 
 
 \setlength{\columnseprule}{0pt}
@@ -47,7 +68,7 @@ bottom=30mm
 \newcommand{\deisa}{\textsc{deisa}\xspace}
 \newcommand{\deetita}{\textsc{deetita}\xspace}
 \newcommand{\pydeisa}{\textsc{PyDeisa}\xspace}
-
+\newcommand{\diamo}{{DiAMo}\xspace}
 \newcommand{\declhdf}{{Decl'HDF5}\xspace}
 \newcommand{\pdi}{PDI\xspace}
 
@@ -148,7 +169,7 @@ bottom=30mm
 \bibliographystyle{abbrvnat}
 
 % Thesis title
-\newcommand{\PhDTitle}{Smart Data Analytics Workflows for High Performance Simulations)} 
+\newcommand{\PhDTitle}{Distributed Task-Based In Situ Data Analytics For High-Performance Simulations } 
 
 % Name
 \newcommand{\PhDname}{Amal GUEROUDJI} 
@@ -170,10 +191,8 @@ bottom=30mm
 
 
 \begin{document}
-	\doublespacing
-	
+
     \input{layout/firstpage.tex}
-    
     \input{layout/dedication.tex}
     \cleardoublepage
     
@@ -184,7 +203,7 @@ bottom=30mm
     \tableofcontents
     \listoffigures
     \listoftables
-    
+    \lstlistoflistings
 
     \foreach \i in {1,2,...,\NumOfChapters}{
         \input{\i}
