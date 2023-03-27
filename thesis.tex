@@ -17,6 +17,7 @@ bottom=25mm
 \usepackage[usenames,dvipsnames,table]{xcolor}
 
 % our packages
+\usepackage{wrapfig}
 \usepackage{pdfpages}
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{caption}
@@ -89,7 +90,7 @@ bottom=25mm
     keywordstyle=[3]\color{NavyBlue},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\mdseries\upshape\normalsize\color{lstfg},
+    basicstyle=\ttfamily\mdseries\upshape\footnotesize\color{lstfg},
     breakatwhitespace=false,
     breaklines=true,
     captionpos=b,
@@ -133,7 +134,7 @@ bottom=25mm
   stringstyle=\YAMLvalstyle,
   string=[b]',
   morestring=[b]",
-  basicstyle=\ttfamily\mdseries\upshape\normalsize\color{lstfg}\YAMLkeystyle,
+  basicstyle=\ttfamily\mdseries\upshape\footnotesize\color{lstfg}\YAMLkeystyle,
   literate=*{:}{{\YAMLsepstyle:}\YAMLvalstyle}1
             {,}{{\YAMLsepstyle,}\YAMLelestyle}1
            {\{}{{\YAMLsepstyle\{}\YAMLkeystyle\YAMLlistfalse}1

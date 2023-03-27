@@ -2,45 +2,57 @@
 \vspace{20mm}
 \epigraph{\textit{To know that we know what we know, and to know that we don't know what we don't know, that is the true knowledge}} {Nicolaus Copernicus}
 
+
+\vfill
+
+
 \newpage
 
-\section{Conclusion and Perspectives}
+
+\section{Conclusion}
 
 
-This thesis aims to bring together the in situ performance and the pot hoc easiness. Our goal is to provide an approach that bypasses the IO bottleneck without adding complexity to the workflow setup. 
+This thesis aims to bring together the in situ performance and the pot hoc easiness. 
+Our goal was to provide an approach that bypasses the IO bottleneck without adding complexity to the workflow setup. 
 Among all the possibilities we had, we have proposed to couple high-performance simulations with \dask distributed in an in transit configuration.   
 We have favored the ease of use because domain experts are not necessarily programming experts; providing a pythonic solution would simplify and accelerate scientific discovery.   
 
-This thesis was organized into two main parts: Part~\ref{part:state}: State of the Art and Part~\ref{part:contribution}: Contributions. 
+This thesis is organized into two main parts: Part~\ref{part:state}: State of the Art and Part~\ref{part:contribution}: Contributions. 
 The State of the Art Part includes two main chapters. In Chapter~\ref{chap:context}, we introduce the context of our work, mainly the HPC, the IO bottleneck and the need to bypass it, the distributed programming models (BSP and distributed task programming), and the data analytics workflows (post hoc and in situ), and then the related work to those. 
 In Chapter\ref{chap:tools}, we have presented the tools we have used in our contributions. \dask distributed as a task-based framework that introduces the ease of use to the in situ workflows and the \pdi data interface, which keeps a good separation of concerns in data handling.    
 
-In Part~\ref{part:contribution}, we have presented the main contributions of this thesis. In Chapter~\ref{chap:approach}, we have proposed to bridging model to couple any MPI program to a \dask distributed, in a producer-consumer configuration where the MPI program (simulation in our work) is the producer of the data, and the distributed task-based framework is the consumer. This model may be extended to other task-based frameworks, as well as to more general coupling configurations (not only producer-consumer) that may be interesting to steer the simulations, for instance, with the results coming from the task-based analytics.    
+In Part~\ref{part:contribution}, we have presented the main contributions of this thesis. 
+In Chapter~\ref{chap:approach}, we have proposed to bridging model to couple any MPI program to a \dask distributed, in a producer-consumer configuration where the MPI program (simulation in our work) is the producer of the data, and the distributed task-based framework is the consumer. 
+This model may be extended to other task-based frameworks, as well as to more general coupling configurations (not only producer-consumer) that may be interesting to steer the simulations, for instance, with the results coming from the task-based analytics.    
 In the same chapter, we have presented a general implementation of our model using the tools presented in Chapter~\ref{chap:tools}. 
 Chapter~\ref{deisachapter} presents a synchronous implementation of the bridging model and the analytics workflow. It is based on \dask internals and key-management systems. The work and results in this chapter have already been published and presented. 
 In Chapter~\ref{deetitachapter}, we have opted for an asynchronous implementation of the bridging model. We have introduced new concepts in \dask to support in situ analytics and external tasks natively. In this version, we have improved the interface and operation of \deisa compared to the synchronous version, which also has its advantages compared to the version presented in this chapter, such as the dynamicity in requesting data at each timestep.
 We have evaluated \deisa versions compared to post hoc analytics and shown that with exact same code, \deisa has better performance which is expected as it avoids the IO bottleneck.
 
 \deisa has been integrated into two production use cases: GYSELA and ARK2-MHD. Both of them generate a huge amount of data, thus the need for in situ analytics. Both codes have access to the \dask and python ecosystem to write analytics. Moreover, they can develop new specific distributed analytics easily. The derivative and the new IPCA algorithms were intended to be used in GYSELA, but we did not have enough time to do the experiments.     
-
 The integration into production codes is a good step to interact with domain scientists and try to understand their needs and expectations regarding the tools we provide and to get new ideas for usable and relevant software for them.
 
-As we have already discussed \deisa still can be technically improved from several perspectives, such as optimizing workers/processes placement to improve performance and reduce variability and construct hybrid in situ/ in transit workflows. 
+\section{Perspectives}
 
-The \deisa bridges implementation can be improved. For instance, using MPI for communication between the bridges is better than the current version, where we use \dask variables that are in the centralized scheduler. One can also try the MPI communication layer of \dask\cite{shafi_efficient_2021} and the scheduler Rust\footnote{https://github.com/It4innovations/rsds} implementation to improve performance.   
+As we have already discussed \deisa still can be technically improved from several perspectives, such as optimizing workers/processes placement to improve performance and reduce variability and construct hybrid in situ/ in transit workflows. 
+The \deisa bridges implementation can also be improved. For instance, using MPI for communication between the bridges is better than the current version, where we use \dask variables that are in the centralized scheduler. One can also try the MPI communication layer of \dask\cite{shafi_efficient_2021} and the scheduler Rust\footnote{https://github.com/It4innovations/rsds} implementation to improve performance.   
 
 In situ analytics solves the IO bottleneck problem, but it is not perfect because the scientists have to know in advance the analytics they want to perform, which is not always the case when trying to understand the problem itself. In such situations, one would rather think to take advantage of \textit{triggers} alongside hybrid workflows. For instance, \deisa can be used to detect rare events or strange events in the simulations and trigger specific analytics if we already know them, or a checkpoint to analyse it in post hoc if we are still in a discovery step. 
 
-\deisa can be explored in a multi-producer/consumer configuration. For instance, to perform ensemble runs analytics by adding simply adding the identifier of the simulation in data keys. 
+\deisa can be explored in a multi-producer/consumer configuration. For instance, to perform ensemble runs analytics by simply adding the identifier of the simulation in data keys.  
+It can also be used for HPI/AI integration and use incremental in situ learning or just use pre-trained models in PyTorch with \dask \footnote{ https://blog.dask.org/2021/03/29/apply-pretrained-pytorch-model}
 
-It can be used for HPI/AI integration and use incremental in situ learning or just use pre-trained models in PyTorch with \dask \footnote{ https://blog.dask.org/2021/03/29/apply-pretrained-pytorch-model}
+The \deisa bridging model can be generalized for a larger range of code coupling configurations between different programming models. For instance, the first step in to make the model work the other way around, where the task-based model is a producer of the data and the MPI application is a consumer. Such a model should be interesting in workflows where the simulation is steered online by in situ analytics. 
 
-\deisa can be used outside of the data analytics as described in this work; it can be deployed in a supercomputer to collect data about running applications and learn specific characteristics for data reproducibility. 
+\deisa can be used outside of the data analytics as described in this work; it can be deployed in supercomputers to collect real-time data about running applications and generates logs to learn specific characteristics for data reproducibility.  
 
-by introducing external tasks to \dask we can easily imagine digital twins workflows,
+By introducing external tasks to \dask,  we can easily implement digital twins workflows, where both simulations and real devices feed the same \dask analytics, but in such configuration, cybersecurity issues may be considered.  
 
-New task-based pythonic DSLs :p, CODON ou qqch comme ca  
+%New task-based pythonic DSLs :p, CODON ou qqch comme ca  
 
-but be aware of security issues 
+%but be aware of security issues 
 
-To know that we know what we know, and to know that we do not know what we do not know, that is the true knowledge, but the more we know, the more we feel that we don't know. 
+
+
+\vfill
+\textit{To know that we know what we know, and to know that we do not know what we do not know, that is the true knowledge, but the more we know, the more we feel that we don't know. }
